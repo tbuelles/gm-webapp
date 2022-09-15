@@ -5,8 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    day_label = str(date.today())
-    title = 'tagesschau 20:00 Uhr, 12.09.2022'
+    day_label = time.strftime('%a') + ' ' + time.strftime('%x')
     url = 'https://www.youtube.com/embed/yQuv1kIN7Io?'
     # title, url = tagesschau()
     return render_template('index.html', **locals())
