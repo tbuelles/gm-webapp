@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block header %}
+<h1>{{ day_label }}</h1>
+{% endblock %}
+
+{% block content %}
+<div class=video-container>
+  <iframe id='tagesschau' src='{{ url }}' allow='autoplay' allowfullscreen>{{ title }}></iframe>
+</div>
+
+<!-- <iframe src={{ url }} width="590" height="349" frameborder="0" allowfullscreen>{{ title }}></iframe> -->
+{% endblock %}
