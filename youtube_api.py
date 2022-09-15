@@ -1,7 +1,8 @@
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
-
+from datetime import date
+import json
 import urllib.parse as p
 import re
 import os
@@ -99,3 +100,21 @@ def search_query(query, maxResults):
                  type='video')
     items = response.get('items')
     return [title_videoId(item) for item in items]
+
+# read/ write urls.json
+def update_url(key, query):
+    with open('urls.json', 'r') as f:
+        urls = json.load(f)
+    title, videoId = search_query(query, maxResults=1)[0]
+    new_url = 'https://www.youtube.com/embed/' + videoId
+    urls[key] = new_url
+    with open('urls.json', 'w') as f:
+        json.dump(urls, f)
+
+# Tagesschau 20:00 Uhr
+def tagesschau():
+    y = date.today() # - timedelta(days=1)
+    y_str = y.strftime('%d.%m.%Y')
+    key = 'tagesschau'
+    query = 'tagesschau 20:00 Uhr' + ', ' + y_str
+    update_url(key, query)
