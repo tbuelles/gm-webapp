@@ -5,6 +5,9 @@ document.onkeydown = function(e) {
   else if (e.which == 86) {
     toggleDiv('stopwatch');
   }
+  else if (e.which == 82) {
+    clickReset();
+  }
   else if (e.which == 13 && running == false) {
     clickStart();
   }
@@ -24,6 +27,19 @@ function toggleDiv(id) {
   var div = document.getElementById(id);
   div.style.visibility = div.style.visibility == "hidden" ? "visible" : "hidden";
 }
+// Date
+function startDate () {
+    const today = new Date();
+    let weekday = new Array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+    let day = weekday[today.getDay()];
+    let dd = today.getDay();
+    let mm = today.getMonth() + 1;
+    let yy = today.getFullYear();
+    yy = yy.toString().substr(-2);
+    let strDate = day + ' ' + mm + '/' + dd + '/' + yy;
+    document.getElementById('date').innerHTML =  strDate;
+  }
+
 // Clock
 function startClock () {
     const today = new Date();
@@ -47,7 +63,10 @@ function startClock () {
   }
 
 
-window.onload = startClock();
+window.onload = function () {
+  startClock();
+  startDate();
+  }
 
 
     // Stopwatch
@@ -74,12 +93,7 @@ window.onload = startClock();
     clearInterval(Interval);
     }
 
-  buttonStart.onclick = clickStart;
-
-  buttonStop.onclick = clickStop;
-
-
-  buttonReset.onclick = function() {
+  function clickReset() {
     running = false
     clearInterval(Interval);
     tens = "00";
@@ -88,8 +102,13 @@ window.onload = startClock();
     appendTens.innerHTML = tens;
   	appendSeconds.innerHTML = seconds;
     appendMins.innerHTML = mins;
-  }
+    }
 
+  buttonStart.onclick = clickStart;
+
+  buttonStop.onclick = clickStop;
+
+  buttonReset.onclick = clickReset;
 
 
   function startTimer () {
