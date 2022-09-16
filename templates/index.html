@@ -5,8 +5,6 @@
 
 {% block content %}
 <div class=video-container>
-  <iframe id='tagesschau' src='{{ url }}' allow='autoplay' allowfullscreen>tagesschau></iframe>
+  <iframe id='tagesschau' src='{{ urls.get('tagesschau') }}' allow='autoplay' allowfullscreen>tagesschau></iframe>
 </div>
-
-<!-- <iframe src={{ url }} width="590" height="349" frameborder="0" allowfullscreen>{{ title }}></iframe> -->
 {% endblock %}
