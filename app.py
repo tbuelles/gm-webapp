@@ -29,7 +29,8 @@ if __name__ == "__main__":
 
 """
 Todo:
-- Bind Enter to Start/Stop
-- Toggle Stopwatch
-- Get more YouTube videos
+- Bind 'r' to Reset Button
+- Get more YouTube Videos
+- News
+- Weather
 """
