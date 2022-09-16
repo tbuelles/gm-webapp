@@ -32,7 +32,7 @@ function startDate () {
     const today = new Date();
     let weekday = new Array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
     let day = weekday[today.getDay()];
-    let dd = today.getDay();
+    let dd = today.getDate();
     let mm = today.getMonth() + 1;
     let yy = today.getFullYear();
     yy = yy.toString().substr(-2);

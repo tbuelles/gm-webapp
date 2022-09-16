@@ -18,8 +18,9 @@ if __name__ == "__main__":
 
 """
 Cron:
-- Fetch queries from YouTube API via youtube/scheduler.py
-- Updated urls saved in in urls.json as key:url
+- (0 20 * * *): Fetch queries from YouTube API via youtube/scheduler.py. Update urls saved in gm-webapp/urls.json
+- (30 20 * * *): Deploy to Heroku. Note that this is localtime (PST).
+
 Todo:
 - Cronjob deploy to Heroku
 - Get more YouTube Videos
