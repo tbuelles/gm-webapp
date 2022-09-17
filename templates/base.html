@@ -5,23 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <title>Good Morning</title>
 </head>
 
 <body>
-<div style="text-align:center;">
-<h1 id='date'></h1>
-<h2 id='clock'></h2>
+  <div class='wrapper'>
+    <!-- Top left: Clock and Date -->
+    <div class='one'>
+      <h1 id='date'></h1>
+      <h2 id='clock'></h2>
+    </div>
+    <!-- Top middle: Daily Show -->
+    {% block daily %}
+    {% endblock %}
 
-<div id='stopwatch'>
-  <p><span id="mins">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></p>
-  <button id="button-start">Start</button>
-  <button id="button-stop">Stop</button>
-  <button id="button-reset">Reset</button>
-</div>
-{% block content %}{% endblock %}
-</div>
+    <!-- Top right: Stopwatch -->
+      <div class='three' id='stopwatch'>
+          <span id="mins">00</span>:<span id="seconds">00</span>:<span id="tens">00</span>
+          <span class="info">
+              <i class="icon-info-sign"></i>
+          </span>
+
+        <div class="extra-info">
+            <p>Start/Stop: <b>Enter</b></p>
+            <p>Reset: <b>r</b></p>
+            <p>Hide: <b>v</b></p>
+        </div>
+      </div>
+
+        <!--
+        <button id="button-start">Start</button>
+        <button id="button-stop">Stop</button>
+        <button id="button-reset">Reset</button>
+         -->
+
+    <!-- Bottom left: Tagesschau -->
+    {% block tagesschau %}{% endblock %}
+
+
+    <!-- Bottom right: News -->
+    <div class='five'>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet tempora magnam possimus natus quis animi non necessitatibus. Sint atque tempore iure necessitatibus, cupiditate facere. Ratione quaerat laboriosam saepe, ipsa consequatur. Reprehenderit voluptas non consequatur in officia. Harum cumque ipsam earum odit, voluptatibus aperiam accusantium, explicabo iusto sequi tempora laudantium autem quia perspiciatis omnis corrupti illum. Assumenda pariatur hic vitae, error veniam at odit accusamus ab eligendi, eius ipsam, veritatis voluptate dolorum doloribus modi maxime iusto exercitationem unde quidem optio sit iure! Nisi quia sunt ratione aliquid neque eligendi in similique! Ab nobis dolorem doloremque earum culpa voluptate, corrupti maiores eveniet. Consequatur hic quae voluptatibus facilis natus similique labore, molestiae iste consequuntur sapiente nobis alias dignissimos nihil deleniti ducimus ullam beatae perspiciatis aliquid quo incidunt nesciunt corrupti, exercitationem, earum possimus repudiandae. Consequuntur blanditiis dicta incidunt officiis commodi mollitia maiores placeat saepe repellendus velit sint, dolor, temporibus perferendis veniam unde laboriosam doloremque iste delectus quibusdam voluptatibus quidem, est ex. Molestiae, dignissimos maiores rem minima quos eius tempore temporibus vitae! Optio dolores labore maiores atque eum aut quibusdam, nostrum debitis asperiores, numquam dicta quas soluta dolore facilis alias voluptate, autem blanditiis facere officia eos repudiandae nobis. Quia illo iste debitis, odio quam sed consectetur. Eligendi iure, consequuntur veniam dignissimos nihil tempore asperiores sunt voluptate distinctio ipsum ducimus non debitis culpa dolor aut laborum quasi, voluptatem consequatur quos a autem. Dolores quam cum sunt eius doloremque libero placeat, quas quis, vitae hic nihil. Praesentium.</div>
+  </div>
 
 <script src="{{ url_for('static', filename='js/main.js') }}"> </script>
 </body>

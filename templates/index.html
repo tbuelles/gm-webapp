@@ -1,10 +1,12 @@
 {% extends "base.html" %}
-{% block header %}
-<h1>{{ day_label }}</h1>
-{% endblock %}
-
-{% block content %}
-<div class=video-container>
-  <iframe id='tagesschau' src='{{ urls.get('tagesschau') }}' allow='autoplay' allowfullscreen>tagesschau></iframe>
+{% block tagesschau %}
+<div class='video-container'>
+  <iframe class='video-content' id='tagesschau' src="{{ urls.get('tagesschau') }}" allow='autoplay' allowfullscreen>Tagesschau></iframe>
 </div>
 {% endblock %}
+{% block daily %}
+<div class='video-container'>
+  <iframe class='video-content' id='daily' src="{{ urls.get('seth') }}" allow='autoplay' allowfullscreen>Daily Show></iframe>
+</div>
+
+{% endblock %}"

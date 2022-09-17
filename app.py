@@ -22,6 +22,7 @@ Cron:
 - (30 20 * * *): Deploy to Heroku. Note that this is localtime (PST).
 
 Todo:
+- CSS Grid
 - Cronjob deploy to Heroku
 - Get more YouTube Videos
 - News

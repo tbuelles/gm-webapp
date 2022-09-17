@@ -1,21 +1,62 @@
 body {
-font-family: Helvetica;
-height:100%;
+  font-family: Helvetica;
 }
 
+.wrapper {
+  background: #eee;
+  display: grid;
+  grid-template-columns: 13fr 5fr 4fr;
+  width: 100vw;
+  height: 100vh;
+}
 
-#stopwatch {
-  margin: auto;
+.one {
+  padding: 1em;
+}
+
+.three {
+  font-size: 30px;
+  padding: 1em;
+}
+
+.five {
+  padding: 1em;
+  grid-column: 2 / 4;
+}
+
+.extra-info {
+  position: absolute;
+  display: none;
+  font-style: italic;
+  font-size: 20px;
+  padding-top: 1em;
+}
+
+.info:hover + .extra-info {
+  display: grid;
+}
+
+.info {
+  font-size: 30px;
+  padding-left: 5px;
+  width: 20px;
+  border-radius: 50px;
+}
+
+.info:hover {
+  background-color: white;
+  padding: 5px;
+  width: 315px;
+  transition: .3s;
 }
 
 .video-container {
-  margin:auto;
   position: relative;
-  width: 60%;
-  padding-bottom: 33.75%;
+  width: 100%;
+  padding-top: 56.25%;
 }
 
-#tagesschau {
+.video-content {
   position: absolute;
   top: 0;
   left: 0;
@@ -24,20 +65,14 @@ height:100%;
   border: 0;
 }
 
-h1 {
-  font-size: 40px;
+#date {
+  font-size: 60px;
+  font-weight: bold;
 }
 h2 {
   font-size: 30px;
 }
-/*
-#mins, #seconds, #tens{
-  font-size:2em;
-} */
 
-p {
-  font-size: 20px;
-}
 
 button{
 border: solid 1px $white;

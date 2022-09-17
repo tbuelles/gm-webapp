@@ -43,6 +43,9 @@ function startDate () {
 // Clock
 function startClock () {
     const today = new Date();
+    let offset = today.getTimezoneOffset();
+    offset /= 60;
+    let timezone = 'UTC-' + offset;
     let h = today.getHours();
     let m = today.getMinutes();
     let s = today.getSeconds();
@@ -51,7 +54,7 @@ function startClock () {
     h = h ? h : 12;
     m = checkTime(m);
     s = checkTime(s);
-    let strTime = h + ":" + m + ":" + s + ' ' + ampm;
+    let strTime = h + ":" + m + ":" + s + ' ' + ampm + ' (' + timezone + ')';
     document.getElementById('clock').innerHTML =  strTime;
     setTimeout(startClock, 1000);
   }
@@ -83,18 +86,18 @@ window.onload = function () {
   var running = false;
 
   function clickStart() {
-      running = true
-      clearInterval(Interval);
-      Interval = setInterval(startTimer, 10);
+    running = true;
+    clearInterval(Interval);
+    Interval = setInterval(startTimer, 10);
     }
 
   function clickStop() {
-    running = false
+    running = false;
     clearInterval(Interval);
     }
 
   function clickReset() {
-    running = false
+    running = false;
     clearInterval(Interval);
     tens = "00";
   	seconds = "00";
