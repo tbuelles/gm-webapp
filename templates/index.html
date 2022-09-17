@@ -1,12 +1,11 @@
 {% extends "base.html" %}
-{% block tagesschau %}
-<div class='video-container'>
-  <iframe class='video-content' id='tagesschau' src="{{ urls.get('tagesschau') }}" allow='autoplay' allowfullscreen>Tagesschau></iframe>
-</div>
-{% endblock %}
 {% block daily %}
 <div class='video-container'>
-  <iframe class='video-content' id='daily' src="{{ urls.get('seth') }}" allow='autoplay' allowfullscreen>Daily Show></iframe>
+  <iframe class='video_top' id='daily' src="{{ urls.get('seth') }}" allow='autoplay' allowfullscreen>Daily Show></iframe>
 </div>
-
-{% endblock %}"
+{% endblock %}
+{% block tagesschau %}
+<div class='video-container'>
+  <iframe class='video_bottom' id='tagesschau' src="{{ urls.get('tagesschau') }}" allow='autoplay' allowfullscreen>Tagesschau></iframe>
+</div>
+{% endblock %}
