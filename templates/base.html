@@ -11,44 +11,29 @@
 </head>
 
 <body>
-  <div class='wrapper'>
-    <!-- Top left: Clock and Date -->
-    <div class='one'>
-      <h1 id='date'></h1>
-      <h2 id='clock'></h2>
-    </div>
-    <!-- Top middle: Daily Show -->
+    <div class="wrapper">
+      <!-- Date, Time, Stopwatch -->
+      {% block time %}
+      {% endblock %}
+      <!-- Weather -->
+      {% block weather %}
+      {% endblock %}
+      <!-- Top middle: Daily Show -->
       {% block daily %}
       {% endblock %}
-    <!-- Top right: Stopwatch -->
-    <div class='three' id='stopwatch'>
-        <span id="mins">00</span>:<span id="seconds">00</span>:<span id="tens">00</span>
-        <span class="info">
-            <i class="icon-info-sign"></i>
-        </span>
-
-      <div class="extra-info">
-          <p>Start/Stop: <b>Enter</b></p>
-          <p>Reset: <b>r</b></p>
-          <p>Hide: <b>v</b></p>
-      </div>
+      <!-- Bottom left: Tagesschau -->
+      {% block tagesschau %}
+      {% endblock %}
+      <!-- Bottom right: News -->
+      {% block nyt %}
+      {% endblock %}
+      <!-- Yahoo Finance -->
+      {% block yahoo %}
+      {% endblock %}
+      <!-- Cron -->
+      {% block cron %}
+      {% endblock %}
     </div>
-
-    <!-- Bottom left: Tagesschau -->
-    {% block tagesschau %}
-    {% endblock %}
-
-    <!-- Bottom right: News -->
-    <div class='five'>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, quasi placeat distinctio nobis minima facere soluta maxime dolore quidem. Eaque atque aspernatur perspiciatis ad fugit, eveniet corrupti quisquam dignissimos in rerum ea necessitatibus, quaerat quos vitae officia ipsa architecto cumque quod et sunt vero dolor. Neque fugiat iusto consectetur consequuntur voluptatum, repudiandae dignissimos impedit saepe commodi necessitatibus aspernatur, accusantium architecto laboriosam nihil possimus harum, recusandae totam cupiditate placeat non eligendi soluta illo blanditiis rerum! Deserunt aut pariatur, officia eos architecto soluta. Ipsa, blanditiis, inventore cupiditate reprehenderit necessitatibus ullam pariatur odio rem, repellendus enim quam vero amet magni nulla mollitia labore quibusdam. Quibusdam explicabo delectus, soluta possimus repellat magni optio. Suscipit officia in, non quas minima ratione rem cum, perspiciatis quaerat quae consequatur voluptates natus voluptatem dolorem facilis minus quos iusto, soluta placeat nesciunt sit aliquid. Sed necessitatibus eveniet veniam nisi repudiandae voluptatibus, eius quisquam ullam fugiat soluta ab mollitia, minima doloremque sapiente accusamus ea unde consequuntur porro ut saepe sit, reiciendis quis praesentium cumque? Accusantium ipsam quam reprehenderit cupiditate suscipit rem, illum similique sint nemo dolorum commodi voluptatem nobis delectus.
-      </p>
-      <ul>
-        <li><b>crontab &nbsp;&ensp;0 20 &#10033; &#10033; &#10033;</b> (UTC-7) YouTube API fetch urls</li>
-        <li><b>crontab 30 20 &#10033; &#10033; &#10033;</b> (UTC-7) git deploy Heroku</li>
-      </ul>
-    </div>
-  </div>
 
 <script src="{{ url_for('static', filename='js/main.js') }}"> </script>
 </body>

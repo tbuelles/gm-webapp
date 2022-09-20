@@ -1,11 +1,92 @@
 {% extends "base.html" %}
+
+{% block time %}
+<div id="date"></div>
+<div id="time">
+  <div id="clock"></div>
+  <div id="stopwatch">
+      <span id="mins">00</span>:<span id="seconds">00</span>:<span id="tens">00</span>
+      <span class="info">
+          <i class="icon-info-sign"></i>
+      </span>
+      <div id="extra-info">
+          <p>Start/Stop: <b>Enter</b></p>
+          <p>Reset: <b>r</b></p>
+          <p>Hide: <b>v</b></p>
+      </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block weather %}
+<div id="weather">
+  <a class="weatherwidget-io" href="https://forecast7.com/en/34d15n118d13/91106/?unit=us" data-label_1="" data-label_2="Pasadena, CA" data-icons="Climacons" data-mode="Forecast" data-theme="mountains" >PASADENA WEATHER</a>
+</div>
+{% endblock %}
+
 {% block daily %}
-<div class='video-container'>
-  <iframe class='video_top' id='daily' src="{{ urls.get('seth') }}" allow='autoplay' allowfullscreen>Daily Show></iframe>
+<div id='daily'>
+  <div class='video-container'>
+    <iframe class='video' src="{{ urls.get('seth') }}" allow='autoplay' allowfullscreen>Daily Show></iframe>
+  </div>
 </div>
 {% endblock %}
 {% block tagesschau %}
-<div class='video-container'>
-  <iframe class='video_bottom' id='tagesschau' src="{{ urls.get('tagesschau') }}" allow='autoplay' allowfullscreen>Tagesschau></iframe>
+<div class='video-container' id='tagesschau'>
+  <iframe class='video' src="{{ urls.get('tagesschau') }}" allow='autoplay' allowfullscreen>Tagesschau></iframe>
+</div>
+{% endblock %}
+
+{% block nyt %}
+<div id="nyt-header" class='news-header'>
+  <a href="https://www.nytimes.com/section/us" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/NewYorkTimes.svg/2560px-NewYorkTimes.svg.png"></a>
+</div>
+<div id="nyt-body">
+    {% for article in news.get('nyt')[:20] %}
+      <div class="news-item">
+        <div class="col-70">
+          <a href="{{ article.get('link') }}" target="_blank"><b>{{ article.get('title') }}</b></a>
+          <p>{{ article.get('description') }}</p>
+          <!-- <i>{{ article.get('date') }}</i> -->
+          <i>{{ article.get('published') }}</i>
+        </div>
+        <div class="col-30">
+          <a href="{{ article.get('link') }}" target="_blank"><b><img class="news-img" src="{{ article.get('img') }}" alt=""></b></a>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block yahoo %}
+<div id='yahoo'>
+  <div id='yahoo-header' class="news-header">
+    <a href="https://finance.yahoo.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Yahoo%21_Finance_logo_2021.png"></a>
+  </div>
+  <div id="yahoo-body">
+    {% for article in news.get('yahoo')[:20] %}
+      <div class='news-item'>
+        <div class='col-70'>
+          <a href="{{ article.get('link') }}" target="_blank"><b>{{ article.get('title') }}</b></a>
+          <p>{{ article.get('description', '') }}</p>
+          <!-- <i>{{ article.get('date') }}</i> -->
+          <i>{{ article.get('published') }}</i>
+        </div>
+        <div class='col-30'>
+          <a href="{{ article.get('link') }}" target="_blank"><b><img class="news-img" src="{{ article.get('img') }}" alt=""></b></a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{% block cron %}
+<div id="cron">
+  <ul>
+    <li><b>crontab &nbsp;&ensp;0 20 &#10033; &#10033; &#10033;</b> (UTC-7) YouTube API fetch urls</li>
+    <li><b>crontab 30 20 &#10033; &#10033; &#10033;</b> (UTC-7) git deploy Heroku</li>
+  </ul>
 </div>
 {% endblock %}
